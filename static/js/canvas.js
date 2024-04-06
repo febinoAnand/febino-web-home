@@ -8,37 +8,8 @@ var c = canvas.getContext('2d');
 
 c.fillStyle = "red";
 c.beginPath();
-// c.strokeStyle = "blue";
 c.fillRect(window.innerWidth/2,window.innerHeight/2,100,100);
 c.fillStyle = "green";
-// c.fillRect(300,100,100,100);
-// c.fillStyle = "yellow";
-// c.fillRect(40,200,100,100);
-
-// c.beginPath();
-// c.moveTo(500,500);
-// c.lineTo(300,300);
-
-// c.moveTo(200,500);
-// c.lineTo(700,550);
-// c.stroke();
-
-// c.arc(innerWidth/2, innerHeight/2, 20, ( 2 * Math.PI / 360 * 180 ), 2 * Math.PI / 360 * 0  , false);
-// c.beginPath();
-
-
-
-// for(var i = 0;i<100;i++){
-//     c.beginPath();
-//     x = Math.random() * window.innerWidth;
-//     y = Math.random() * window.innerHeight;
-//     radius = Math.random() * 25 + 25;
-//     c.arc(x,y,radius,0,Math.PI * 2,false);
-//     c.stroke();
-// }
-
-
-// console.log(this);
 
 var mousePointer = {
     x:0,
@@ -46,8 +17,6 @@ var mousePointer = {
 }
 
 document.addEventListener("mousemove",function (event){
-
-    
     mousePointer.x = event.x;
     mousePointer.y = event.y;
     console.log(mousePointer);
@@ -80,10 +49,6 @@ function Circle(x, y, dx, dy, radius){
             this.x += this.dx;
             this.y += this.dy;
 
-            // if(mousePointer.x - this.x > this.radius){
-            //    this.x += 5;
-            //    this.y += 5;
-            // }
             var distanceFromPointerX = mousePointer.x - this.x;
 
             var distanceFromPointerY = mousePointer.y - this.y;
@@ -115,7 +80,7 @@ function Circle(x, y, dx, dy, radius){
 
 var circleArray = [];
 
-for (var i = 0 ; i<50;i++){
+for (var i = 0 ; i<40;i++){
     var radius = Math.random() * 25 + 25;
     var x = Math.random() * (window.innerWidth - radius * 2) + radius;
     var y = Math.random() * (window.innerHeight - radius * 2) + radius;
@@ -158,24 +123,7 @@ function animate(){
     requestAnimationFrame(animate);
     c.clearRect(0,0,window.innerWidth,window.innerHeight);
     fillText();
-    // makeRectangle();
-    
     makeCircle();
-
-    
-    
-    // c.beginPath();
-    // c.arc(x,y,radius,0,Math.PI * 2,false);
-    // c.stroke();
-    // if(x  > window.innerWidth - radius || x  < 0 + radius){
-    //     dx *= -1;
-    // }
-    // if(y > window.innerHeight - radius || y < 0 + radius){
-    //     dy *= -1;
-    // }
-    // x += dx;
-    // y += dy;
-
 }
 
 animate();
